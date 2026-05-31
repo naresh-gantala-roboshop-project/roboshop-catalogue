@@ -7,8 +7,8 @@ run:
 	MYSQL_HOST=localhost MYSQL_USER=catalogue MYSQL_PASSWORD=RoboShop@1 MYSQL_DATABASE=catalogue go run .
 
 docker-build:
-	docker build -t roboshop-catalogue .
-
+	docker build -t nareshroboshop.azurecr.io/roboshop-catalogue .
+	docker push nareshroboshop.azurecr.io/roboshop-catalogue
 db-init:
 	mysql -h $${MYSQL_HOST:-localhost} -u root -pRoboShop@1 < db/app-user.sql
 	mysql -h $${MYSQL_HOST:-localhost} -u root -pRoboShop@1 < db/schema.sql
