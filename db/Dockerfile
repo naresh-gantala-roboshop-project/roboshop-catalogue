@@ -1,5 +1,4 @@
-FROM alpine:3.19
-
+FROM debian:bookworm-slim
 # Install the actual Oracle mysql-client, curl, and unzip
 RUN apt-get update && apt-get install -y --no-install-recommends \
     default-mysql-client \
@@ -7,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     bash \
     && rm -rf /var/lib/apt/lists/*
-    
+
 WORKDIR /schema
 
 # Download and extract the database artifacts
